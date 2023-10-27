@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%-- Importe as classes necessárias --%>
+<%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.Locale" %>
+<%@ page import="java.io.PrintWriter" %>
+
+<%
+    // Dados do usuário
+    String nome = "Vitor Hugo";
+
+    // Valores enviados pelo formulário
+    String destinatario = request.getParameter("destinatario");
+    double valorTransferencia = Double.parseDouble(request.getParameter("valor"));
+    double saldoAtual = Double.parseDouble(request.getParameter("saldoAtual"));
+
+    // Verifica se o valor da transferência é válido
+    if (valorTransferencia <= 0) {
+        out.println("O valor da transferência deve ser maior que zero.");
+    } else if (valorTransferencia > saldoAtual) {
+        out.println("Saldo insuficiente para realizar a transferência.");
+    } else {
+        // Calcula o novo saldo
+        double novoSaldo = saldoAtual - valorTransferencia;
+
+        // Atualiza o saldo
+        saldoAtual = novoSaldo;
+        %>
+        <h1>Transferência realizada com sucesso!</h1>
+        <p>Novo saldo: R$ <%= NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(novoSaldo) %></p>
+        <%
+    }
+%>

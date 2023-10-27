@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FiveBank</title>
+
+    <!-- Inclua as bibliotecas do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- Navbar do Tech5 Bank -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Tech5 Bank</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Bem-vindo ao FiveBank</h2>
+            <p>Somos o seu banco de confiança, oferecendo soluções financeiras de última geração.</p>
+            <p>Confira nossos serviços e descubra como podemos ajudá-lo a alcançar seus objetivos financeiros.</p>
+            <a href="cadastro.html" class="btn btn-primary">Comece Agora</a>
+        </div>
+        <div class="col-md-6">
+            <img src="./img/logo.jpg" alt="Tech5 Bank Logo" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+    <!-- Conteúdo da sua landing page aqui -->
+
+    <!-- Certifique-se de incluir os scripts do Bootstrap no seu projeto -->
+</body>
+</html>

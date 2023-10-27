@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<%
+	import javax.servlet.http.HttpServlet;
+	import javax.servlet.http.HttpServletRequest;
+	import javax.servlet.http.HttpServletResponse;
+	import java.io.IOException;
+
+	public class TransferenciaServlet extends HttpServlet {
+	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	        // Obtenha o valor da transferência a partir do formulário
+	        double valorTransferencia = Double.parseDouble(request.getParameter("valor"));
+
+	        // Atualize o saldo (supondo que você tenha uma conta de usuário)
+	        double novoSaldo = saldo - valorTransferencia;
+
+	        // Atualize a variável de sessão ou banco de dados com o novo saldo
+
+	        // Redirecione de volta para a página inicial com o saldo atualizado
+	        response.sendRedirect("index.jsp");
+	    }
+	}
+
+	%>
+	<!-- Formulário de transferência -->
+<form id="transferForm" action="TransferenciaServlet" method="post">
+    <div class="mb-3">
+        <label for="destinatario" class="form-label">Destinatário:</label>
+        <input type="text" class="form-control" id="destinatario" name="destinatario" required>
+    </div>
+    <div class="mb-3">
+        <label for="valor" class="form-label">Valor (R$):</label>
+        <input type="number" class="form-control" id="valor" name="valor" step="0.01" required>
+    </div>
+    <button type="submit" class="btn btn-primary" id="transferirBtn">Transferir</button>
+</form>
+<p>Saldo: R$ <span id="saldo"><%=String.format("%.2f", novoSaldo) %></span></p>
+	
+</body>
+</html>

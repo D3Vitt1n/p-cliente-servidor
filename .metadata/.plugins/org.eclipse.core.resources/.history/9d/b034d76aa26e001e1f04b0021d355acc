@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Seu código de cabeçalho aqui -->
+</head>
+<body>
+    <div class="login-container col-lg-6">
+        <h1>Login</h1><br>
+        <form action="processaLogin.jsp" method="post">
+            <div class="mb-3">
+                <label for="cpf" class="form-label">Digite seu CPF</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" aria-describedby="emailHelp" required>
+                <div id="emailHelp" class="form-text">Nunca compartilharemos seus dados com mais ninguém.</div>
+            </div>
+            <div class="mb-3">
+                <label for "senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" name="senha" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+
+        <%
+            String cpf = request.getParameter("cpf");
+            String senha = request.getParameter("senha");
+
+            if ("12345678912".equals(cpf) && "54321".equals(senha)) {
+                // CPF e senha válidos, redirecione ou execute a ação desejada.
+                response.sendRedirect("Transferencia.jsp.jsp"); // Substitua pelo redirecionamento desejado.
+            } else {
+                // CPF ou senha inválidos, exiba uma mensagem de erro.
+        %>
+        <div class="alert alert-danger">
+            CPF ou senha incorretos. Tente novamente.
+        </div>
+        <%
+            }
+        %>
+    </div>
+</body>
+</html>
